@@ -5,7 +5,7 @@ This repository hosts the official Privacy Policies, Terms of Service, and compl
 ## App Directories
 
 ### 🃏 Memory Match Game
-* **Privacy Policy URL**: [https://tritechnologies3.github.io/legal/](https://tritechnologies3.github.io/legal/)
+* **Privacy Policy URL**: [[https://tritechnologies3.github.io/legal/](https://tri-technologies.github.io/legal/)]
 * **App Store Listing**: Google Play Store
 
 ---
