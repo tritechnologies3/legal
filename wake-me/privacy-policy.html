@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Privacy Policy for Wake Me — the location-based alarm app by A²H Software. Understand how your location and alarm data is handled." />
+  <title>Privacy Policy — Wake Me</title>
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #09090f;
+      --bg-card:     #111117;
+      --bg-card2:    #16161e;
+      --border:      rgba(255,255,255,0.07);
+      --blue:        #007AFF;
+      --blue-glow:   rgba(0,122,255,0.18);
+      --blue-soft:   rgba(0,122,255,0.10);
+      --red:         #FF3B30;
+      --amber:       #FF9500;
+      --green:       #30D158;
+      --text:        #ECEDEE;
+      --text-sub:    #9BA1A6;
+      --text-dim:    #555b62;
+      --radius-lg:   20px;
+      --radius-md:   14px;
+      --radius-sm:   8px;
+      --font:        -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Ambient gradient backdrop ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -30vh;
+      left: -20vw;
+      width: 70vw;
+      height: 70vw;
+      background: radial-gradient(circle, rgba(0,122,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -20vh;
+      right: -20vw;
+      width: 55vw;
+      height: 55vw;
+      background: radial-gradient(circle, rgba(255,59,48,0.05) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── Layout ─── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ─── Header ─── */
+    header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--blue-soft);
+      border: 1px solid rgba(0,122,255,0.25);
+      border-radius: 50px;
+      padding: 8px 18px;
+      margin-bottom: 28px;
+    }
+
+    .logo-icon {
+      width: 26px;
+      height: 26px;
+      background: var(--blue);
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .logo-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 0.5px;
+    }
+
+    header h1 {
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1.5px;
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
+
+    .header-meta {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .meta-chip {
+      font-size: 12px;
+      color: var(--text-sub);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 5px 14px;
+      font-weight: 500;
+    }
+
+    /* ─── Section Cards ─── */
+    section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 28px 24px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+
+    section:hover {
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+
+    .section-label .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .dot-blue  { background: var(--blue); }
+    .dot-red   { background: var(--red); }
+    .dot-amber { background: var(--amber); }
+    .dot-green { background: var(--green); }
+    .dot-white { background: var(--text-sub); }
+
+    section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
+    }
+
+    section p, section li {
+      font-size: 14.5px;
+      color: var(--text-sub);
+      line-height: 1.75;
+    }
+
+    section ul, section ol {
+      padding-left: 20px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    section li { padding-left: 4px; }
+
+    section p + p { margin-top: 12px; }
+
+    /* ─── Inline key-value rows ─── */
+    .kv-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px 20px;
+      margin-top: 14px;
+    }
+
+    .kv-key {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .kv-val {
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    /* ─── Permission table ─── */
+    .perm-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+
+    .perm-table thead tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .perm-table th {
+      text-align: left;
+      padding: 8px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .perm-table td {
+      padding: 10px 10px;
+      color: var(--text-sub);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: top;
+    }
+
+    .perm-table tr:last-child td { border-bottom: none; }
+
+    .perm-table .perm-name {
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      font-size: 12px;
+      font-family: 'SFMono-Regular', 'Courier New', monospace;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+    }
+    .badge-blue  { background: var(--blue-soft); color: var(--blue); border: 1px solid rgba(0,122,255,0.3); }
+    .badge-amber { background: rgba(255,149,0,0.10); color: var(--amber); border: 1px solid rgba(255,149,0,0.3); }
+
+    /* ─── Highlight callout ─── */
+    .callout {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: var(--blue-soft);
+      border: 1px solid rgba(0,122,255,0.2);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      margin-top: 16px;
+    }
+
+    .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+    .callout p {
+      font-size: 13.5px !important;
+      color: rgba(236,237,238,0.85) !important;
+      margin: 0 !important;
+    }
+
+    /* ─── Third-party service rows ─── */
+    .service-row {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .service-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .service-row:first-child { padding-top: 0; }
+
+    .service-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+      background: var(--bg-card2);
+    }
+
+    .service-info strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .service-info span {
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    /* ─── Contact card ─── */
+    .contact-card {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+
+    .contact-card p {
+      font-size: 13.5px !important;
+      color: var(--text-sub) !important;
+    }
+
+    .contact-card a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer .footer-logo {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 500px) {
+      .wrapper { padding: 32px 16px 60px; }
+      section { padding: 22px 18px 18px; }
+      .kv-grid { grid-template-columns: 1fr; gap: 4px; }
+      .kv-key { font-size: 12px; color: var(--text-dim); }
+      .perm-table .perm-name { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- ─── Header ─── -->
+    <header>
+      <div class="logo-badge">
+        <div class="logo-icon">📍</div>
+        <span class="logo-text">Wake Me</span>
+      </div>
+      <h1>Privacy Policy</h1>
+      <div class="header-meta">
+        <span class="meta-chip">Effective: June 15, 2025</span>
+        <span class="meta-chip">A²H Software</span>
+        <span class="meta-chip">v1.0</span>
+      </div>
+    </header>
+
+    <!-- ─── 1. Introduction ─── -->
+    <section>
+      <div class="section-label"><span class="dot dot-blue"></span> Overview</div>
+      <h2>Our Commitment to Your Privacy</h2>
+      <p>
+        Wake Me ("the App") is a location-based alarm application developed by <strong>A²H Software</strong>. This Privacy Policy explains precisely what information the App accesses, how it is used, where it is processed, and your rights regarding that information.
+      </p>
+      <p>
+        We have designed Wake Me with privacy as a foundation. <strong>Your location and alarm data are never transmitted to our servers</strong>, never sold, and never shared with advertisers. All core functionality runs entirely on your device.
+      </p>
+      <div class="callout">
+        <span class="callout-icon">🔒</span>
+        <p>Wake Me does not have user accounts, does not require registration, and does not collect any personally identifiable information. Your location data never leaves your device for the purpose of the app's alarm features.</p>
+      </div>
+    </section>
+
+    <!-- ─── 2. Information We Access ─── -->
+    <section>
+      <div class="section-label"><span class="dot dot-amber"></span> Data Access</div>
+      <h2>Information the App Accesses</h2>
+
+      <p><strong style="color:#fff;">Location Data</strong></p>
+      <p>
+        Wake Me requests access to your device's GPS location — both while the App is in the foreground and in the background. Location access is the core mechanism by which the App determines when you have entered the geofence (proximity zone) around your chosen destination.
+      </p>
+      <ul>
+        <li><strong>Foreground location:</strong> Read continuously while the App is open and an alarm is active, to update the map and calculate distance to your destination in real time.</li>
+        <li><strong>Background location:</strong> Read periodically (approximately every 3–5 seconds) by a system background task while an alarm is active and the App is minimised or the screen is locked. This is the only way the App can trigger an alarm when you are not actively using it.</li>
+        <li><strong>Purpose limitation:</strong> Location coordinates are used solely to measure distance against your chosen alarm destination. They are never stored beyond the current session except as described under Local Storage below.</li>
+      </ul>
+
+      <p style="margin-top:16px;"><strong style="color:#fff;">Device Identifiers & System State</strong></p>
+      <p>
+        The App reads device state such as whether location services are enabled and notification permission status, solely to prompt you for necessary permissions and display appropriate warnings.
+      </p>
+
+      <p style="margin-top:16px;"><strong style="color:#fff;">Search Queries</strong></p>
+      <p>
+        When you type a destination in the search bar, your search text and — to obtain a map position — GPS coordinates are sent to OpenStreetMap's Nominatim geocoding service (see Third-Party Services below). We do not control OpenStreetMap's data handling.
+      </p>
+    </section>
+
+    <!-- ─── 3. Permissions ─── -->
+    <section>
+      <div class="section-label"><span class="dot dot-amber"></span> Permissions</div>
+      <h2>Device Permissions Requested</h2>
+      <p>The following permissions are declared in the App and requested at runtime. Granting each permission is required for the stated functionality.</p>
+
+      <table class="perm-table">
+        <thead>
+          <tr>
+            <th>Permission</th>
+            <th>Platform</th>
+            <th>Why It's Needed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="perm-name">ACCESS_FINE_LOCATION<br>ACCESS_COARSE_LOCATION</td>
+            <td><span class="badge badge-blue">Android</span></td>
+            <td>GPS tracking to determine your real-time position for geofence calculation.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">ACCESS_BACKGROUND_LOCATION</td>
+            <td><span class="badge badge-blue">Android</span></td>
+            <td>Allows the background location task to check your position while the App is minimised or the screen is locked, so the alarm fires even when you are not using the App.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">FOREGROUND_SERVICE<br>FOREGROUND_SERVICE_LOCATION</td>
+            <td><span class="badge badge-blue">Android</span></td>
+            <td>Required to run a persistent foreground service that shows the "Wake Me — Tracking" notification while monitoring your location.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">POST_NOTIFICATIONS</td>
+            <td><span class="badge badge-blue">Android</span></td>
+            <td>Send alarm-triggered and status notifications to your device.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">VIBRATE</td>
+            <td><span class="badge badge-blue">Android</span></td>
+            <td>Haptic feedback during alarm triggering.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">SCHEDULE_EXACT_ALARM</td>
+            <td><span class="badge badge-blue">Android</span></td>
+            <td>Schedule alarm notifications at a precise time on Android 12+.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">WAKE_LOCK<br>USE_FULL_SCREEN_INTENT</td>
+            <td><span class="badge badge-blue">Android</span></td>
+            <td>Wake the screen and display the alarm UI over the lock screen when you arrive at your destination.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">NSLocationAlwaysAndWhenInUse<br>UsageDescription</td>
+            <td><span class="badge badge-amber">iOS</span></td>
+            <td>Background location access to trigger alarms when the App is in the background.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">NSLocationWhenInUse<br>UsageDescription</td>
+            <td><span class="badge badge-amber">iOS</span></td>
+            <td>Foreground GPS access to display your position on the map.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">UIBackgroundModes: location, audio</td>
+            <td><span class="badge badge-amber">iOS</span></td>
+            <td>Continue location updates and alarm audio playback in the background.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">Notifications Permission</td>
+            <td><span class="badge badge-amber">iOS</span></td>
+            <td>Display alarm-triggered banners and sound alerts via the iOS notification system.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ─── 4. Local Storage ─── -->
+    <section>
+      <div class="section-label"><span class="dot dot-blue"></span> Local Storage</div>
+      <h2>Data Stored on Your Device</h2>
+      <p>
+        Wake Me stores data exclusively on your device using the standard React Native AsyncStorage API. This data is never transmitted to our servers. The following items are stored:
+      </p>
+      <div class="kv-grid" style="margin-top:18px;">
+        <div class="kv-key">Active Alarm</div>
+        <div class="kv-val">The name, GPS coordinates, geofence radius, and chosen alarm sound of your current alarm. Stored while an alarm is active; deleted when the alarm is dismissed or cancelled.</div>
+
+        <div class="kv-key">Alarm State Flag</div>
+        <div class="kv-val">A boolean flag indicating whether the background task has detected arrival at your destination. Used to restore the alarm screen if the App was closed when the alarm triggered.</div>
+
+        <div class="kv-key">Saved Locations</div>
+        <div class="kv-val">An array of your favorited alarm locations (name, coordinates, radius, sound), saved automatically when you set an alarm. You can delete these at any time from the Saved Alarms screen.</div>
+
+        <div class="kv-key">History Log</div>
+        <div class="kv-val">A log of alarms you have previously dismissed, including the destination name, coordinates, and timestamp. Stored locally; you can clear this at any time.</div>
+
+        <div class="kv-key">Background Location Cache</div>
+        <div class="kv-val">The most recent GPS coordinate checked by the background task, cached briefly to improve performance. Cleared when tracking stops.</div>
+
+        <div class="kv-key">Notification State Flags</div>
+        <div class="kv-val">Temporary flags used to coordinate Stop/Snooze actions between the notification shade and the App UI, preventing duplicate actions. Cleared after use.</div>
+      </div>
+      <div class="callout" style="margin-top:20px;">
+        <span class="callout-icon">🗑️</span>
+        <p>You can delete all locally stored data at any time by uninstalling the App. Saved Locations and History can also be cleared individually within the App's "Saved Alarms" screen.</p>
+      </div>
+    </section>
+
+    <!-- ─── 5. External Services ─── -->
+    <section>
+      <div class="section-label"><span class="dot dot-red"></span> Third-Party Services</div>
+      <h2>External Services We Use</h2>
+      <p>Wake Me communicates with the following external services. No personal account data or device identifiers are sent to any of these services.</p>
+
+      <div style="margin-top:20px;">
+        <div class="service-row">
+          <div class="service-icon">🗺️</div>
+          <div class="service-info">
+            <strong>OpenStreetMap Nominatim (Geocoding)</strong>
+            <span>When you search for a destination or tap a location on the map, your search text and/or approximate GPS coordinates are sent to Nominatim (<code style="font-size:12px;color:var(--text-sub);">nominatim.openstreetmap.org</code>) to resolve a place name or street address. This service is operated by the OpenStreetMap Foundation. See their <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">Privacy Policy</a>.</span>
+          </div>
+        </div>
+
+        <div class="service-row">
+          <div class="service-icon">🌍</div>
+          <div class="service-info">
+            <strong>OpenStreetMap Tile Server (Map Tiles)</strong>
+            <span>The interactive map inside the App loads map tile images from <code style="font-size:12px;color:var(--text-sub);">tile.openstreetmap.org</code>. Tile requests include the geographic bounding box of the visible map area. No personally identifiable information is attached.</span>
+          </div>
+        </div>
+
+        <div class="service-row">
+          <div class="service-icon">⚡</div>
+          <div class="service-info">
+            <strong>Expo OTA Updates (App Updates)</strong>
+            <span>On each App launch, a silent update check is performed against Expo's update delivery service (<code style="font-size:12px;color:var(--text-sub);">u.expo.dev</code>). Only the App's current version identifier is exchanged. No location data or alarm data is involved. See Expo's <a href="https://expo.dev/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">Privacy Policy</a>.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:20px; background: rgba(255,149,0,0.06); border-color: rgba(255,149,0,0.2);">
+        <span class="callout-icon">⚠️</span>
+        <p>Wake Me does <strong>not</strong> use any analytics, advertising, crash-reporting, or behavioural tracking SDKs. No data is sent to A²H Software servers.</p>
+      </div>
+    </section>
+
+    <!-- ─── 6. How We Use Data ─── -->
+    <section>
+      <div class="section-label"><span class="dot dot-green"></span> Data Use</div>
+      <h2>How Information Is Used</h2>
+      <ul>
+        <li><strong>Alarm triggering:</strong> Your real-time GPS coordinates are compared against your chosen destination using the Haversine formula to determine arrival. This computation happens entirely on your device.</li>
+        <li><strong>Map display:</strong> Your location is rendered as a marker on the interactive map within the App.</li>
+        <li><strong>Address resolution:</strong> Search queries and tap-coordinates are sent to Nominatim to resolve a human-readable location name. The result is displayed to you and, if you confirm, stored locally as part of your alarm configuration.</li>
+        <li><strong>Notifications:</strong> When you arrive at a destination, a local notification is generated on your device. This notification is created by the App and delivered entirely by the device's operating system — no notification server is involved.</li>
+        <li><strong>App updates:</strong> The Expo update service is queried on launch to silently deliver bug fixes and improvements.</li>
+      </ul>
+    </section>
+
+    <!-- ─── 7. Data Retention & Deletion ─── -->
+    <section>
+      <div class="section-label"><span class="dot dot-white"></span> Retention</div>
+      <h2>Data Retention &amp; Deletion</h2>
+      <p>Because all data is stored locally on your device, <strong>you are in full control of retention and deletion</strong>:</p>
+      <ul>
+        <li><strong>Active alarm data</strong> is automatically deleted when you cancel or dismiss an alarm.</li>
+        <li><strong>Saved Locations</strong> can be individually deleted in the "Saved Alarms" screen, or cleared entirely by uninstalling the App.</li>
+        <li><strong>History Log</strong> can be cleared at any time using the "Clear History Log" button in the "Saved Alarms" screen.</li>
+        <li><strong>All App data</strong> is permanently deleted when you uninstall Wake Me from your device.</li>
+      </ul>
+      <p>We do not retain any copies of your data on external servers because we do not receive it in the first place.</p>
+    </section>
+
+    <!-- ─── 8. Children's Privacy ─── -->
+    <section>
+      <div class="section-label"><span class="dot dot-white"></span> Children</div>
+      <h2>Children's Privacy</h2>
+      <p>
+        Wake Me is not directed at children under the age of 13 (or the applicable age of digital consent in your jurisdiction). We do not knowingly collect information from children. Because the App does not collect or transmit personal data to us, there is no specific risk to children beyond general location permission use.
+      </p>
+      <p>
+        If you are a parent or guardian and believe your child has granted location permissions to this App without your consent, you can revoke permissions at any time in your device's Settings.
+      </p>
+    </section>
+
+    <!-- ─── 9. Security ─── -->
+    <section>
+      <div class="section-label"><span class="dot dot-blue"></span> Security</div>
+      <h2>Security</h2>
+      <p>
+        Because Wake Me stores data only on your device using the operating system's standard application storage, your data is protected by your device's built-in security mechanisms (passcode, biometric lock, device encryption).
+      </p>
+      <p>
+        We do not operate servers that hold your data, so there is no server-side data breach risk for your location or alarm information.
+      </p>
+    </section>
+
+    <!-- ─── 10. Changes ─── -->
+    <section>
+      <div class="section-label"><span class="dot dot-white"></span> Updates</div>
+      <h2>Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy if the App's data handling practices change (for example, if a new feature requires different data access). When we do, we will update the "Effective" date at the top of this document and, where appropriate, notify users via an in-app notice.
+      </p>
+      <p>
+        Continued use of Wake Me after a policy update constitutes acceptance of the revised terms. We encourage you to review this policy periodically.
+      </p>
+    </section>
+
+    <!-- ─── 11. Contact ─── -->
+    <section>
+      <div class="section-label"><span class="dot dot-green"></span> Contact</div>
+      <h2>Contact Us</h2>
+      <p>If you have questions or concerns about this Privacy Policy or about how Wake Me handles your data, please contact us:</p>
+      <div class="contact-card">
+        <p><strong style="color:#fff;">A²H Software</strong></p>
+        <p style="margin-top:8px;">Email: <a href="mailto:privacy@a2hsoftware.com">privacy@a2hsoftware.com</a></p>
+        <p style="margin-top:4px;">App: Wake Me (package: <code style="font-size:12px;">t3.wakeme</code>)</p>
+      </div>
+    </section>
+
+    <!-- ─── Footer ─── -->
+    <footer>
+      <div class="footer-logo">Wake Me · A²H Software</div>
+      <p>Privacy Policy · Effective June 15, 2025</p>
+      <p style="margin-top:8px;">
+        <a href="terms.html">Terms &amp; Conditions</a>
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>
