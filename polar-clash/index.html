@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polar Clash — Privacy Policy & Terms of Service</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #07070f;
+      --card-bg: rgba(18, 18, 38, 0.7);
+      --border-color: rgba(48, 48, 86, 0.6);
+      --text-main: #f0f0f5;
+      --text-muted: #a0a0c0;
+      --accent-red: #e74c3c;
+      --accent-blue: #3498db;
+      --accent-glow-red: rgba(231, 76, 60, 0.15);
+      --accent-glow-blue: rgba(52, 152, 219, 0.15);
+      --font-title: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Background Spotlight Glowing Effects */
+    body::before {
+      content: "";
+      position: absolute;
+      top: -10%;
+      left: 10%;
+      width: 50vw;
+      height: 50vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-glow-red) 0%, rgba(7, 7, 15, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    body::after {
+      content: "";
+      position: absolute;
+      bottom: -10%;
+      right: 10%;
+      width: 50vw;
+      height: 50vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-glow-blue) 0%, rgba(7, 7, 15, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      flex: 1;
+      width: 100%;
+    }
+
+    /* Header Styling */
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .logo-container {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--accent-red), var(--accent-blue));
+      margin-bottom: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Custom 2.5D Magnet Logo inside header */
+    .logo-container::before {
+      content: "N";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: var(--accent-red);
+      color: white;
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .logo-container::after {
+      content: "S";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: var(--accent-blue);
+      color: white;
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 38px;
+      letter-spacing: 3px;
+      background: linear-gradient(to right, #ffffff, #d0d0f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      font-family: var(--font-title);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+    }
+
+    /* Tab Switcher Styling */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      gap: 16px;
+    }
+
+    .tab-btn {
+      font-family: var(--font-title);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      background-color: rgba(27, 27, 54, 0.4);
+      border: 1.5px solid var(--border-color);
+      padding: 12px 28px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      outline: none;
+    }
+
+    .tab-btn:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .tab-btn.active {
+      color: #ffffff;
+      border-color: var(--accent-red);
+      background: linear-gradient(135deg, rgba(231, 76, 60, 0.2), rgba(231, 76, 60, 0.05));
+      box-shadow: 0 0 20px rgba(231, 76, 60, 0.2);
+    }
+
+    .tab-btn#tab-terms.active {
+      border-color: var(--accent-blue);
+      background: linear-gradient(135deg, rgba(52, 152, 219, 0.2), rgba(52, 152, 219, 0.05));
+      box-shadow: 0 0 20px rgba(52, 152, 219, 0.2);
+    }
+
+    /* Content Card */
+    .content-card {
+      background-color: var(--card-bg);
+      border: 1.5px solid var(--border-color);
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Legal Document Typography */
+    h2 {
+      font-family: var(--font-title);
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    h2:first-of-type {
+      margin-top: 0;
+    }
+
+    h3 {
+      font-family: var(--font-title);
+      font-size: 17px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+
+    ul, ol {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .last-updated {
+      font-style: italic;
+      color: var(--text-muted);
+      opacity: 0.7;
+      margin-bottom: 24px;
+      font-size: 13px;
+    }
+
+    .highlight-box {
+      background: rgba(52, 152, 219, 0.08);
+      border-left: 4px solid var(--accent-blue);
+      padding: 16px;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 20px;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      color: #d0d0f5;
+    }
+
+    /* Footer Styling */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border-color);
+      margin-top: 40px;
+      background-color: rgba(5, 5, 12, 0.8);
+    }
+
+    a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px 10px;
+      }
+      .content-card {
+        padding: 24px;
+        border-radius: 20px;
+      }
+      h1 {
+        font-size: 28px;
+      }
+      .tabs {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .tab-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="logo-container"></div>
+      <h1>Polar Clash</h1>
+      <div class="subtitle">Magnet Strategy Game</div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" id="tab-privacy" onclick="switchTab('privacy')">Privacy Policy</button>
+      <button class="tab-btn" id="tab-terms" onclick="switchTab('terms')">Terms & Conditions</button>
+    </div>
+
+    <div class="content-card">
+      
+      <!-- PRIVACY POLICY CONTENT -->
+      <div id="privacy-content" class="tab-content active">
+        <p class="last-updated">Last Updated: June 26, 2026</p>
+        
+        <h2>1. Introduction</h2>
+        <p>
+          Thank you for choosing to play Polar Clash, a local 2-player pass-and-play magnet strategy board game. We highly value your trust and are fully committed to protecting your privacy. This Privacy Policy outlines our practices regarding data, showing how we treat your information.
+        </p>
+
+        <div class="highlight-box">
+          <p><strong>Strict Privacy Commitment:</strong> Polar Clash is designed to operate 100% offline. We do not collect, transmit, store, or share any personal information of any kind.</p>
+        </div>
+
+        <h2>2. Data Collection & Usage</h2>
+        <p>
+          Unlike many modern games, Polar Clash does not collect or require any personal data:
+        </p>
+        <ul>
+          <li><strong>No Personal Information:</strong> We do not ask for, collect, or store personal details such as names, email addresses, phone numbers, or account details.</li>
+          <li><strong>No Unique Device Identifiers:</strong> We do not track MAC addresses, IMEIs, Advertising IDs, or IP addresses.</li>
+          <li><strong>No Location Data:</strong> We do not access or track your GPS location or IP-based geolocation.</li>
+          <li><strong>No Gameplay Analytics:</strong> We do not monitor how long you play, what boards you select, or details of matches. All scores and game states are temporary and remain local to your game session.</li>
+        </ul>
+
+        <h2>3. Third-Party Services & Integrations</h2>
+        <p>
+          Polar Clash does not incorporate any third-party services that track or collect user information:
+        </p>
+        <ul>
+          <li><strong>No Advertisements:</strong> The game does not serve ads, which means no ad networks can track your profile or behavior.</li>
+          <li><strong>No Web Analytics:</strong> We do not embed services like Google Analytics, Firebase SDKs, or Flurry Analytics inside the mobile application.</li>
+          <li><strong>No Social Media Integrations:</strong> There are no "Sign in with Facebook" or "Share on Twitter" integrations that could transmit your profile data.</li>
+        </ul>
+
+        <h2>4. Storage & Security</h2>
+        <p>
+          All data generated inside the game—such as your local sound volume preferences or whether you have accepted the Terms and Conditions—is stored locally on your device via standard local storage (AsyncStorage/Preferences).
+        </p>
+        <p>
+          Because the game operates entirely offline and lacks internet access permissions (network communication requests are disabled), there is no risk of remote data breaches, interception, or server-side leaks.
+        </p>
+
+        <h2>5. Children's Privacy</h2>
+        <p>
+          Polar Clash is a family-oriented strategy game. Because we do not collect, transmit, or share any personal information from any user, our application is fully compliant with the Children's Online Privacy Protection Act (COPPA) and Google Play's Family Policy requirements. We do not knowingly collect personal information from children under 13, because we do not collect personal information from anyone.
+        </p>
+
+        <h2>6. Changes to This Privacy Policy</h2>
+        <p>
+          We may update our Privacy Policy from time to time. Since we do not collect user emails, we cannot notify users individually. We recommend checking this page periodically. Any modifications to this policy will take effect immediately upon hosting.
+        </p>
+
+        <h2>7. Contact Us</h2>
+        <p>
+          If you have any questions, feedback, or concerns regarding your privacy or this policy, please feel free to reach out via our GitHub repository issues page or contact the developers at:
+        </p>
+        <p>
+          <strong>Email:</strong> software.a2h@gmail.com<br>
+          <strong>GitHub:</strong> <a href="https://github.com/Tri-Technologies/polar-clash" target="_blank" rel="noopener noreferrer">github.com/Tri-Technologies/polar-clash</a>
+        </p>
+      </div>
+
+      <!-- TERMS & CONDITIONS CONTENT -->
+      <div id="terms-content" class="tab-content">
+        <p class="last-updated">Last Updated: June 26, 2026</p>
+        
+        <h2>1. Acceptance of Terms</h2>
+        <p>
+          By downloading, installing, or playing Polar Clash (the "Game"), you agree to be bound by these Terms & Conditions. If you do not agree to all of these terms, you are not permitted to use the Game and must uninstall it immediately.
+        </p>
+
+        <h2>2. Description of the Game</h2>
+        <p>
+          Polar Clash is a local, 2-player pass-and-play turn-based strategy game. Players take turns placing octagonal 3D magnetic game pieces onto a spotlit digital tabletop board. When placed magnets clash, they are returned to the respective player's hand. The first player to empty their hand of magnets wins the match.
+        </p>
+
+        <h2>3. License & Intellectual Property</h2>
+        <p>
+          We grant you a personal, non-transferable, non-exclusive, revocable license to install and play Polar Clash on your personal mobile devices for non-commercial entertainment purposes.
+        </p>
+        <p>
+          All assets, graphics, designs (including the 2.5D physical tabletop visual system), gameplay math, engine mechanics, and source code are the intellectual property of the developers and are protected by applicable copyright and trademark laws.
+        </p>
+
+        <h2>4. User Responsibilities & Fair Play</h2>
+        <p>
+          As a player of Polar Clash, you agree:
+        </p>
+        <ul>
+          <li>To play the game fairly and within its built-in digital board rules.</li>
+          <li>Not to reverse-engineer, modify, decompile, or create derivative works of the Game's software or assets.</li>
+          <li>Not to exploit any software bugs or physics vulnerabilities to gain unfair advantages.</li>
+          <li>To use the application safely, taking proper breaks, and ensuring a comfortable environment.</li>
+        </ul>
+
+        <h2>5. Disclaimer of Warranties</h2>
+        <p>
+          Polar Clash is provided "as is" and "as available", without warranty of any kind, express or implied. The developers do not guarantee that the Game will run uninterrupted, be bug-free, or be compatible with every mobile hardware configuration. Your use of the Game is at your sole discretion and risk.
+        </p>
+
+        <h2>6. Limitation of Liability</h2>
+        <p>
+          To the maximum extent permitted by applicable law, the developers, authors, and contributors of Polar Clash shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages. This includes, but is not limited to, physical injury, damage to your device, battery degradation, data loss, or emotional distress arising out of your download, play, or inability to play the Game.
+        </p>
+
+        <h2>7. Governing Law</h2>
+        <p>
+          These Terms & Conditions shall be governed by and construed in accordance with the laws of the jurisdiction in which the developer operates, without regard to conflict of law principles.
+        </p>
+
+        <h2>8. Contact Information</h2>
+        <p>
+          For questions or suggestions regarding these Terms & Conditions, please contact us at:
+        </p>
+        <p>
+          <strong>Email:</strong> software.a2h@gmail.com
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Polar Clash Game. Developed by Tri-Technologies. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function switchTab(tabId) {
+      // Deactivate all tabs
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // Activate selected tab
+      if (tabId === 'privacy') {
+        document.getElementById('tab-privacy').classList.add('active');
+        document.getElementById('privacy-content').classList.add('active');
+      } else if (tabId === 'terms') {
+        document.getElementById('tab-terms').classList.add('active');
+        document.getElementById('terms-content').classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
